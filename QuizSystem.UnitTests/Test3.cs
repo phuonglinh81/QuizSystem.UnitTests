@@ -39,6 +39,7 @@ namespace QuizSystem.UnitTests
             };
         }
 
+        // Tải file null
         [Fact]
         public async Task UploadFile_NoFile_ReturnsBadRequest()
         {
@@ -55,6 +56,7 @@ namespace QuizSystem.UnitTests
             Assert.Equal("Vui lòng chọn file hợp lệ.", badRequestResult.Value);
         }
 
+        // Tải file rỗng
         [Fact]
         public async Task UploadFile_EmptyFile_ReturnsBadRequest()
         {
@@ -73,6 +75,7 @@ namespace QuizSystem.UnitTests
             Assert.Equal("Vui lòng chọn file hợp lệ.", badRequestResult.Value);
         }
 
+        // Tải lên file vượt quá dung lượng cho phép
         [Fact]
         public async Task UploadFile_FileTooLarge_ReturnsBadRequest()
         {
@@ -91,6 +94,7 @@ namespace QuizSystem.UnitTests
             Assert.Equal("Kích thước file không được vượt quá 2MB.", badRequestResult.Value);
         }
 
+        // Tải lên file không đúng định dạng
         [Fact]
         public async Task UploadFile_UnsupportedFileType_ReturnsBadRequest()
         {
@@ -107,6 +111,7 @@ namespace QuizSystem.UnitTests
             Assert.Equal("Chỉ hỗ trợ file .txt và .docx.", badRequestResult.Value);
         }
 
+        // upload file hợp lệ
         [Fact]
         public async Task UploadFile_ValidTxtFile_ReturnsOk()
         {
